@@ -12,7 +12,9 @@ formDOM.addEventListener('submit', e => {
 
     fetch('/api/register', {
         method: 'POST',
-        headers: {},
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(clientData),
     })
         .then(res => res.json())
