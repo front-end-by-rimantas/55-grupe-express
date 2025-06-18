@@ -7,11 +7,11 @@ export function isValisPassword(text) {
     }
 
     if (text.length < minSize) {
-        return [true, 'Slaptazodis turi tureti ne maziau 12 simboliu'];
+        return [true, `Slaptazodis turi tureti ne maziau ${minSize} simboliu`];
     }
 
     if (text.length > maxSize) {
-        return [true, 'Slaptazodis turi tureti ne daugiau 100 simboliu'];
+        return [true, `Slaptazodis turi tureti ne daugiau ${maxSize} simboliu`];
     }
 
     return [false, ''];
