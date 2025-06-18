@@ -1,16 +1,15 @@
 import { users } from "../data/users.js";
-import { isValisPassword } from "../lib/isValidPassword.js";
-import { isValidUsername } from "../lib/isValidUsername.js";
+import { IsValid } from "../lib/IsValid.js";
 
 export function registerAPI(req, res) {
-    const [errUser, msgUser] = isValidUsername(req.body.username);
-    if (errUser) {
-        return res.send(msgUser);
-    }
+    const [err, msg] = IsValid.fields(req.body, {
+        username: 'username',
+        pass: 'password',
+        userAge: 'age',
+    });
 
-    const [errPass, msgPass] = isValisPassword(req.body.password);
-    if (errPass) {
-        return res.send(msgPass);
+    if (err) {
+        return msg;
     }
 
     // tikriname, ar nera dublikatu
