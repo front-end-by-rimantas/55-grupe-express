@@ -11,12 +11,18 @@ import { registerAPI } from './api/registerAPI.js';
 import { PageLogin } from './pages/PageLogin.js';
 import { loginAPI } from './api/loginAPI.js';
 import { PageDashboard } from './pages/PageDashboard.js';
+import { services } from './components/services.js';
 
 const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
 app.use(express.json());
+
+app.use((req, res, next) => {
+    console.log(req.url, new Date());
+    next();
+});
 
 // public routes
 app.get('/', (req, res) => res.send(new PageHome(req).render()));
