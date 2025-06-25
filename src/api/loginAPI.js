@@ -42,7 +42,7 @@ export function loginAPI(req, res) {
     });
 
     const cookieParams = [
-        `login-token=${loginTokenString}`,
+        `loginToken=${loginTokenString}`,
         'domain=localhost',
         'max-age=3600',
         'HttpOnly',
